@@ -1,0 +1,5 @@
+experiment,total_cases,reference_passed,no_rag_passed,rag_passed,no_rag_accuracy,rag_accuracy,improvement_pp,keyword_coverage
+Original,8,8,5,4,62.5,50.0,-12.5,34.38
+Prompt v2,8,8,7,7,87.5,87.5,0.0,34.38
+Prompt v3,8,8,7,7,87.5,87.5,0.0,34.38
+Prompt v4,8,8,7,8,87.5,100.0,12.5,34.38

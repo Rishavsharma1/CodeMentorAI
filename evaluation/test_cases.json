@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "question": "Write a Python function that adds two numbers.",
+    "function_name": "add_numbers",
+    "code": "def add_numbers(a, b):\n    return a + b",
+    "tests": [
+      "assert add_numbers(2, 3) == 5",
+      "assert add_numbers(-1, 1) == 0",
+      "assert add_numbers(2.5, 1.5) == 4.0"
+    ],
+    "relevant_keywords": [
+      "addition",
+      "sum",
+      "add",
+      "numbers"
+    ]
+  },
+  {
+    "id": 2,
+    "question": "Write a Python function to check whether a number is even.",
+    "function_name": "is_even",
+    "code": "def is_even(n):\n    return n % 2 == 0",
+    "tests": [
+      "assert is_even(4) == True",
+      "assert is_even(7) == False",
+      "assert is_even(0) == True"
+    ],
+    "relevant_keywords": [
+      "even",
+      "odd",
+      "modulo",
+      "number"
+    ]
+  },
+  {
+    "id": 3,
+    "question": "Write a Python function that returns the largest number in a list.",
+    "function_name": "find_largest",
+    "code": "def find_largest(numbers):\n    return max(numbers)",
+    "tests": [
+      "assert find_largest([1, 5, 3]) == 5",
+      "assert find_largest([-5, -2, -9]) == -2",
+      "assert find_largest([10]) == 10"
+    ],
+    "relevant_keywords": [
+      "largest",
+      "maximum",
+      "list",
+      "max"
+    ]
+  },
+  {
+    "id": 4,
+    "question": "Write a Python function that reverses a string.",
+    "function_name": "reverse_string",
+    "code": "def reverse_string(text):\n    return text[::-1]",
+    "tests": [
+      "assert reverse_string('hello') == 'olleh'",
+      "assert reverse_string('python') == 'nohtyp'",
+      "assert reverse_string('') == ''"
+    ],
+    "relevant_keywords": [
+      "reverse",
+      "string",
+      "slicing",
+      "text"
+    ]
+  },
+  {
+    "id": 5,
+    "question": "Write a Python function to calculate the factorial of a non-negative integer.",
+    "function_name": "factorial",
+    "code": "def factorial(n):\n    if n < 0:\n        raise ValueError('Factorial is not defined for negative numbers')\n    result = 1\n    for i in range(2, n + 1):\n        result *= i\n    return result",
+    "tests": [
+      "assert factorial(0) == 1",
+      "assert factorial(1) == 1",
+      "assert factorial(5) == 120"
+    ],
+    "relevant_keywords": [
+      "factorial",
+      "recursion",
+      "loop",
+      "multiplication"
+    ]
+  }
+]

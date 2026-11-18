@@ -1,0 +1,36 @@
+
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# macOS files
+.DS_Store
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# IDE settings
+.vscode/
+.idea/
+
+# Logs and temporary files
+*.log
+*.tmp
+temp/
+tmp/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Test and coverage cache
+.pytest_cache/
+.coverage
+htmlcov/

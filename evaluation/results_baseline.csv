@@ -1,0 +1,26 @@
+evaluation_date,case_id,function_name,reference_passed,retrieved_count,keyword_coverage,retrieval_time_seconds,no_rag_syntax_valid,no_rag_tests_passed,no_rag_generation_time,no_rag_error,rag_syntax_valid,rag_tests_passed,rag_generation_time,rag_error
+2026-11-17T04:06:53,1,add_numbers,True,5,1.0,0.7818,True,False,1.7885,"Traceback (most recent call last):
+  File ""/app/main.py"", line 4, in <module>
+    assert add_numbers(2, 3) == 5
+           ^^^^^^^^^^^
+NameError: name 'add_numbers' is not defined. Did you mean: 'add_two_numbers'?
+",True,False,3.1218,"Traceback (most recent call last):
+  File ""/app/main.py"", line 7, in <module>
+    assert add_numbers(2, 3) == 5
+           ^^^^^^^^^^^
+NameError: name 'add_numbers' is not defined. Did you mean: 'add_two_numbers'?
+"
+2026-11-17T04:06:53,2,is_even,True,5,0.5,0.0106,True,True,0.6583,,True,True,2.0096,
+2026-11-17T04:06:53,3,find_largest,True,5,1.0,0.0108,True,False,2.443,"Traceback (most recent call last):
+  File ""/app/main.py"", line 16, in <module>
+    assert find_largest([1, 5, 3]) == 5
+           ^^^^^^^^^^^^
+NameError: name 'find_largest' is not defined
+",True,False,1.5667,"Traceback (most recent call last):
+  File ""/app/main.py"", line 7, in <module>
+    assert find_largest([1, 5, 3]) == 5
+           ^^^^^^^^^^^^
+NameError: name 'find_largest' is not defined
+"
+2026-11-17T04:06:53,4,reverse_string,True,5,0.75,0.01,True,True,0.8171,,True,True,0.8209,
+2026-11-17T04:06:53,5,factorial,True,5,0.0,0.009,True,True,0.9099,,True,True,3.3126,

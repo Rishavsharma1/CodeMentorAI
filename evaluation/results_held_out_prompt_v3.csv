@@ -1,0 +1,19 @@
+evaluation_date,case_id,function_name,reference_passed,retrieved_count,keyword_coverage,retrieval_time_seconds,no_rag_syntax_valid,no_rag_tests_passed,no_rag_generation_time,no_rag_error,rag_syntax_valid,rag_tests_passed,rag_generation_time,rag_error
+2026-11-18T18:52:50,101,has_balanced_parentheses,True,5,0.0,0.9026,True,True,2.7816,,True,True,2.2514,
+2026-11-18T18:52:50,102,second_largest,True,5,0.25,0.0124,True,False,2.2373,"Traceback (most recent call last):
+  File ""/app/main.py"", line 13, in <module>
+    assert second_largest([-1, -5, -2]) == -2
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+",True,True,2.5725,
+2026-11-18T18:52:50,103,merge_sorted_lists,True,5,0.5,0.0119,True,True,4.5872,,True,True,3.4124,
+2026-11-18T18:52:50,104,word_frequency,True,5,0.75,0.0143,True,True,1.4436,,True,False,1.5864,"Traceback (most recent call last):
+  File ""/app/main.py"", line 9, in <module>
+    assert word_frequency('Hello hello WORLD') == {'hello': 2, 'world': 1}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+"
+2026-11-18T18:52:50,105,rotate_list,True,5,0.25,0.0104,True,True,2.3251,,True,True,2.2622,
+2026-11-18T18:52:50,106,remove_duplicates,True,5,0.5,0.0104,True,True,1.9617,,True,True,1.8058,
+2026-11-18T18:52:50,107,is_leap_year,True,5,0.0,0.0086,True,True,2.7199,,True,True,2.7772,
+2026-11-18T18:52:50,108,find_missing_number,True,5,0.5,0.015,True,True,1.8507,,True,True,1.9664,

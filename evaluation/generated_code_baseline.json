@@ -1,0 +1,72 @@
+[
+    {
+        "case_id": 1,
+        "function_name": "add_numbers",
+        "mode": "NO-RAG",
+        "generated_code": "def add_two_numbers(num1, num2):\n    return num1 + num2",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 2,
+        "function_name": "is_even",
+        "mode": "NO-RAG",
+        "generated_code": "def is_even(number):\n    return number % 2 == 0",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 3,
+        "function_name": "find_largest",
+        "mode": "NO-RAG",
+        "generated_code": "def find_largest_number(numbers):\n    \"\"\"\n    This function takes a list of numbers and returns the largest number in the list.\n    \"\"\"\n    if not numbers:  # Check if the list is empty\n        return None  # Return None if the list is empty\n    \n    largest = numbers[0]  # Assume the first number is the largest initially\n    \n    for number in numbers:\n        if number > largest:\n            largest = number  # Update largest if a larger number is found\n    \n    return largest",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 4,
+        "function_name": "reverse_string",
+        "mode": "NO-RAG",
+        "generated_code": "def reverse_string(s):\n    \"\"\"\n    Reverses the given string s.\n    \"\"\"\n    return s[::-1]",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 5,
+        "function_name": "factorial",
+        "mode": "NO-RAG",
+        "generated_code": "def factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n - 1)",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 1,
+        "function_name": "add_numbers",
+        "mode": "RAG",
+        "generated_code": "def add_two_numbers(num1, num2):\n    \"\"\"\n    This function takes two numbers as input and returns their sum.\n    \"\"\"\n    return num1 + num2",
+        "retrieved_examples_count": 3
+    },
+    {
+        "case_id": 2,
+        "function_name": "is_even",
+        "mode": "RAG",
+        "generated_code": "def is_even(number):\n    \"\"\"\n    Check if a number is even.\n\n    Parameters:\n    number (int): The number to check.\n\n    Returns:\n    bool: True if the number is even, False otherwise.\n    \"\"\"\n    return number % 2 == 0",
+        "retrieved_examples_count": 3
+    },
+    {
+        "case_id": 3,
+        "function_name": "find_largest",
+        "mode": "RAG",
+        "generated_code": "def find_largest_number(numbers):\n    \"\"\"\n    This function takes a list of numbers and returns the largest number in the list.\n    \"\"\"\n    return max(numbers)",
+        "retrieved_examples_count": 3
+    },
+    {
+        "case_id": 4,
+        "function_name": "reverse_string",
+        "mode": "RAG",
+        "generated_code": "def reverse_string(s):\n    return s[::-1]",
+        "retrieved_examples_count": 3
+    },
+    {
+        "case_id": 5,
+        "function_name": "factorial",
+        "mode": "RAG",
+        "generated_code": "def factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n - 1)",
+        "retrieved_examples_count": 3
+    }
+]

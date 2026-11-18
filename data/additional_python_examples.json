@@ -1,0 +1,183 @@
+
+[
+  {
+    "question": "Write a Python function to calculate the factorial of a non-negative integer using recursion.",
+    "code": "def factorial(n):\n    if n < 0:\n        raise ValueError('n must be non-negative')\n    if n == 0 or n == 1:\n        return 1\n    return n * factorial(n - 1)",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to calculate factorial using an iterative loop.",
+    "code": "def factorial_iterative(n):\n    if n < 0:\n        raise ValueError('n must be non-negative')\n    result = 1\n    for i in range(2, n + 1):\n        result *= i\n    return result",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a recursive Python function to calculate the nth Fibonacci number.",
+    "code": "def fibonacci(n):\n    if n < 0:\n        raise ValueError('n must be non-negative')\n    if n <= 1:\n        return n\n    return fibonacci(n - 1) + fibonacci(n - 2)",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to generate the Fibonacci sequence using iteration.",
+    "code": "def fibonacci_sequence(n):\n    if n < 0:\n        raise ValueError('n must be non-negative')\n    result = []\n    a, b = 0, 1\n    for _ in range(n):\n        result.append(a)\n        a, b = b, a + b\n    return result",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to check whether a number is prime.",
+    "code": "def is_prime(n):\n    if n < 2:\n        return False\n    for i in range(2, int(n ** 0.5) + 1):\n        if n % i == 0:\n            return False\n    return True",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to check whether a string is a palindrome.",
+    "code": "def is_palindrome(text):\n    normalized = ''.join(ch.lower() for ch in text if ch.isalnum())\n    return normalized == normalized[::-1]",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to reverse a string.",
+    "code": "def reverse_string(text):\n    return text[::-1]",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to find the largest element in a list.",
+    "code": "def find_largest(numbers):\n    if not numbers:\n        raise ValueError('List cannot be empty')\n    largest = numbers[0]\n    for number in numbers[1:]:\n        if number > largest:\n            largest = number\n    return largest",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to find the smallest element in a list.",
+    "code": "def find_smallest(numbers):\n    if not numbers:\n        raise ValueError('List cannot be empty')\n    smallest = numbers[0]\n    for number in numbers[1:]:\n        if number < smallest:\n            smallest = number\n    return smallest",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to sort a list using bubble sort.",
+    "code": "def bubble_sort(numbers):\n    result = numbers.copy()\n    for i in range(len(result)):\n        for j in range(0, len(result) - i - 1):\n            if result[j] > result[j + 1]:\n                result[j], result[j + 1] = result[j + 1], result[j]\n    return result",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to perform binary search on a sorted list.",
+    "code": "def binary_search(numbers, target):\n    left, right = 0, len(numbers) - 1\n    while left <= right:\n        middle = (left + right) // 2\n        if numbers[middle] == target:\n            return middle\n        if numbers[middle] < target:\n            left = middle + 1\n        else:\n            right = middle - 1\n    return -1",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to perform linear search in a list.",
+    "code": "def linear_search(numbers, target):\n    for index, number in enumerate(numbers):\n        if number == target:\n            return index\n    return -1",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to count the frequency of each element in a list using a dictionary.",
+    "code": "def count_frequency(items):\n    frequency = {}\n    for item in items:\n        frequency[item] = frequency.get(item, 0) + 1\n    return frequency",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to remove duplicate elements from a list while preserving order.",
+    "code": "def remove_duplicates(items):\n    result = []\n    seen = set()\n    for item in items:\n        if item not in seen:\n            result.append(item)\n            seen.add(item)\n    return result",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to find the sum of all elements in a list.",
+    "code": "def list_sum(numbers):\n    total = 0\n    for number in numbers:\n        total += number\n    return total",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to calculate the average of numbers in a list.",
+    "code": "def calculate_average(numbers):\n    if not numbers:\n        raise ValueError('List cannot be empty')\n    return sum(numbers) / len(numbers)",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to check whether a number is even.",
+    "code": "def is_even(n):\n    return n % 2 == 0",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to calculate the greatest common divisor of two integers.",
+    "code": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return abs(a)",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to calculate the least common multiple of two integers.",
+    "code": "import math\n\ndef lcm(a, b):\n    if a == 0 or b == 0:\n        return 0\n    return abs(a * b) // math.gcd(a, b)",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to check whether two strings are anagrams.",
+    "code": "def are_anagrams(first, second):\n    normalize = lambda text: sorted(ch.lower() for ch in text if ch.isalnum())\n    return normalize(first) == normalize(second)",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to count vowels in a string.",
+    "code": "def count_vowels(text):\n    vowels = 'aeiou'\n    return sum(1 for char in text.lower() if char in vowels)",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to capitalize the first letter of every word in a sentence.",
+    "code": "def capitalize_words(text):\n    return text.title()",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to merge two dictionaries.",
+    "code": "def merge_dictionaries(first, second):\n    result = first.copy()\n    result.update(second)\n    return result",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to find common elements between two lists.",
+    "code": "def common_elements(first, second):\n    second_set = set(second)\n    return list(dict.fromkeys(item for item in first if item in second_set))",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to flatten a nested list of integers.",
+    "code": "def flatten_list(nested):\n    result = []\n    for item in nested:\n        if isinstance(item, list):\n            result.extend(flatten_list(item))\n        else:\n            result.append(item)\n    return result",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to read a text file and return its contents.",
+    "code": "def read_file(file_path):\n    with open(file_path, 'r', encoding='utf-8') as file:\n        return file.read()",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to write text into a file.",
+    "code": "def write_file(file_path, content):\n    with open(file_path, 'w', encoding='utf-8') as file:\n        file.write(content)",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to read rows from a CSV file using the csv module.",
+    "code": "import csv\n\ndef read_csv(file_path):\n    with open(file_path, 'r', newline='', encoding='utf-8') as file:\n        return list(csv.DictReader(file))",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to handle division by zero using exception handling.",
+    "code": "def safe_divide(a, b):\n    try:\n        return a / b\n    except ZeroDivisionError:\n        return None",
+    "language": "Python",
+    "source": "Supplementary"
+  },
+  {
+    "question": "Write a Python function to safely convert a string to an integer.",
+    "code": "def safe_int(value):\n    try:\n        return int(value)\n    except ValueError:\n        return None",
+    "language": "Python",
+    "source": "Supplementary"
+  }
+]

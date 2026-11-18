@@ -1,0 +1,50 @@
+evaluation_date,case_id,function_name,reference_passed,retrieved_count,keyword_coverage,retrieval_time_seconds,no_rag_syntax_valid,no_rag_tests_passed,no_rag_generation_time,no_rag_error,rag_syntax_valid,rag_tests_passed,rag_generation_time,rag_error
+2026-11-18T18:43:01,101,has_balanced_parentheses,True,5,0.0,0.8026,True,True,4.0274,,True,True,1.8197,
+2026-11-18T18:43:01,102,second_largest,True,5,0.25,0.0102,True,False,1.8363,"Traceback (most recent call last):
+  File ""/app/main.py"", line 13, in <module>
+    assert second_largest([-1, -5, -2]) == -2
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+",True,False,2.6175,"Traceback (most recent call last):
+  File ""/app/main.py"", line 13, in <module>
+    assert second_largest([10, 5, 8, 10, 3]) == 8
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+"
+2026-11-18T18:43:01,103,merge_sorted_lists,True,5,0.5,0.0118,True,True,5.1168,,True,True,4.8801,
+2026-11-18T18:43:01,104,word_frequency,True,5,0.75,0.0086,True,False,3.1227,"Traceback (most recent call last):
+  File ""/app/main.py"", line 21, in <module>
+    assert word_frequency('Hello hello WORLD') == {'hello': 2, 'world': 1}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+",True,False,1.5839,"Traceback (most recent call last):
+  File ""/app/main.py"", line 9, in <module>
+    assert word_frequency('Hello hello WORLD') == {'hello': 2, 'world': 1}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+"
+2026-11-18T18:43:01,105,rotate_list,True,5,0.25,0.0099,True,False,2.8446,"Traceback (most recent call last):
+  File ""/app/main.py"", line 15, in <module>
+    assert rotate_list([], 3) == []
+           ^^^^^^^^^^^^^^^^^^
+  File ""/app/main.py"", line 6, in rotate_list
+    k = k % n  # In case k is greater than the list length
+        ~~^~~
+ZeroDivisionError: integer modulo by zero
+",True,False,2.1618,"Traceback (most recent call last):
+  File ""/app/main.py"", line 12, in <module>
+    assert rotate_list([], 3) == []
+           ^^^^^^^^^^^^^^^^^^
+  File ""/app/main.py"", line 6, in rotate_list
+    k = k % n  # In case k is greater than the length of the list
+        ~~^~~
+ZeroDivisionError: integer modulo by zero
+"
+2026-11-18T18:43:01,106,remove_duplicates,True,5,0.5,0.009,True,True,2.0274,,True,True,1.6343,
+2026-11-18T18:43:01,107,is_leap_year,True,5,0.0,0.0133,True,True,2.2191,,True,True,2.0161,
+2026-11-18T18:43:01,108,find_missing_number,True,5,0.5,0.0097,True,True,1.4743,,True,False,6.3324,"Traceback (most recent call last):
+  File ""/app/main.py"", line 27, in <module>
+    assert find_missing_number([3, 0, 1]) == 2
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: find_missing_number() missing 2 required positional arguments: 'start' and 'end'
+"

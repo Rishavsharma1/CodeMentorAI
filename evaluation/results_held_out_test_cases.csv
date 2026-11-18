@@ -1,0 +1,14 @@
+evaluation_date,case_id,function_name,reference_passed,retrieved_count,keyword_coverage,retrieval_time_seconds,no_rag_syntax_valid,no_rag_tests_passed,no_rag_generation_time,no_rag_error,rag_syntax_valid,rag_tests_passed,rag_generation_time,rag_error
+2026-11-18T18:56:57,101,has_balanced_parentheses,True,5,0.0,0.9196,True,True,2.659,,True,True,2.0361,
+2026-11-18T18:56:57,102,second_largest,True,5,0.25,0.0106,True,False,2.1425,"Traceback (most recent call last):
+  File ""/app/main.py"", line 13, in <module>
+    assert second_largest([-1, -5, -2]) == -2
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+",True,True,2.4321,
+2026-11-18T18:56:57,103,merge_sorted_lists,True,5,0.5,0.0132,True,True,4.9667,,True,True,3.5669,
+2026-11-18T18:56:57,104,word_frequency,True,5,0.75,0.0149,True,True,3.1821,,True,True,2.489,
+2026-11-18T18:56:57,105,rotate_list,True,5,0.25,0.0117,True,True,2.9109,,True,True,2.2387,
+2026-11-18T18:56:57,106,remove_duplicates,True,5,0.5,0.0239,True,True,1.9353,,True,True,1.6494,
+2026-11-18T18:56:57,107,is_leap_year,True,5,0.0,0.0082,True,True,2.4643,,True,True,2.5137,
+2026-11-18T18:56:57,108,find_missing_number,True,5,0.5,0.0089,True,True,1.5997,,True,True,2.8135,

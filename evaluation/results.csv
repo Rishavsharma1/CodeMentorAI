@@ -1,0 +1,6 @@
+evaluation_date,case_id,function_name,reference_passed,retrieved_count,keyword_coverage,retrieval_time_seconds,no_rag_syntax_valid,no_rag_tests_passed,no_rag_generation_time,no_rag_error,rag_syntax_valid,rag_tests_passed,rag_generation_time,rag_error
+2026-11-18T18:32:24,1,add_numbers,True,5,1.0,0.6411,True,True,0.4993,,True,True,0.5114,
+2026-11-18T18:32:24,2,is_even,True,5,0.5,0.01,True,True,0.65,,True,True,1.0872,
+2026-11-18T18:32:24,3,find_largest,True,5,1.0,0.01,True,True,0.8482,,True,True,1.2468,
+2026-11-18T18:32:24,4,reverse_string,True,5,0.75,0.0097,True,True,0.5619,,True,True,1.0603,
+2026-11-18T18:32:24,5,factorial,True,5,0.75,0.0093,True,True,0.8248,,True,True,1.1963,

@@ -1,0 +1,114 @@
+[
+    {
+        "case_id": 101,
+        "function_name": "has_balanced_parentheses",
+        "mode": "NO-RAG",
+        "generated_code": "def has_balanced_parentheses(s):\n    stack = []\n    mapping = {\")\": \"(\", \"}\": \"{\", \"]\": \"[\"}\n    for char in s:\n        if char in mapping.values():\n            stack.append(char)\n        elif char in mapping.keys():\n            if not stack or mapping[char] != stack.pop():\n                return False\n    return not stack",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 102,
+        "function_name": "second_largest",
+        "mode": "NO-RAG",
+        "generated_code": "def second_largest(nums):\n    largest, second_largest = -1, -1\n    for num in nums:\n        if num > largest:\n            second_largest = largest\n            largest = num\n        elif num > second_largest and num != largest:\n            second_largest = num\n    return second_largest",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 103,
+        "function_name": "merge_sorted_lists",
+        "mode": "NO-RAG",
+        "generated_code": "def merge_sorted_lists(list1, list2):\n    \"\"\"\n    Merge two sorted lists into one sorted list.\n    \n    Parameters:\n    list1 (List[int]): The first sorted list.\n    list2 (List[int]): The second sorted list.\n    \n    Returns:\n    List[int]: A new list containing all elements from both input lists, sorted.\n    \"\"\"\n    merged_list = []\n    i, j = 0, 0\n\n    # Traverse both lists and append the smaller element to the merged list\n    while i < len(list1) and j < len(list2):\n        if list1[i] < list2[j]:\n            merged_list.append(list1[i])\n            i += 1\n        else:\n            merged_list.append(list2[j])\n            j += 1\n\n    # Append remaining elements of list1, if any\n    while i < len(list1):\n        merged_list.append(list1[i])\n        i += 1\n\n    # Append remaining elements of list2, if any\n    while j < len(list2):\n        merged_list.append(list2[j])\n        j += 1\n\n    return merged_list",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 104,
+        "function_name": "word_frequency",
+        "mode": "NO-RAG",
+        "generated_code": "def word_frequency(sentence):\n    # Split the sentence into words based on spaces\n    words = sentence.split()\n    \n    # Create an empty dictionary to store word frequencies\n    frequency = {}\n    \n    # Iterate through each word in the list\n    for word in words:\n        # If the word is already in the dictionary, increment its count\n        if word in frequency:\n            frequency[word] += 1\n        # If the word is not in the dictionary, add it with a count of 1\n        else:\n            frequency[word] = 1\n    \n    # Return the dictionary containing word frequencies\n    return frequency",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 105,
+        "function_name": "rotate_list",
+        "mode": "NO-RAG",
+        "generated_code": "def rotate_list(lst, k):\n    \"\"\"\n    Rotate the elements of the list to the right by k positions.\n    \"\"\"\n    n = len(lst)\n    k = k % n  # In case k is greater than the list length\n    if n == 0 or k == 0:\n        return lst\n    lst[:] = lst[-k:] + lst[:-k]\n    return lst",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 106,
+        "function_name": "remove_duplicates",
+        "mode": "NO-RAG",
+        "generated_code": "def remove_duplicates(lst):\n    seen = set()\n    result = []\n    for item in lst:\n        if item not in seen:\n            seen.add(item)\n            result.append(item)\n    return result",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 107,
+        "function_name": "is_leap_year",
+        "mode": "NO-RAG",
+        "generated_code": "def is_leap_year(year):\n    if year % 4 == 0:\n        if year % 100 == 0:\n            if year % 400 == 0:\n                return True\n            else:\n                return False\n        else:\n            return True\n    else:\n        return False",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 108,
+        "function_name": "find_missing_number",
+        "mode": "NO-RAG",
+        "generated_code": "def find_missing_number(nums):\n    n = len(nums)\n    expected_sum = n * (n + 1) // 2\n    actual_sum = sum(nums)\n    return expected_sum - actual_sum",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 101,
+        "function_name": "has_balanced_parentheses",
+        "mode": "RAG",
+        "generated_code": "def has_balanced_parentheses(s):\n    stack = []\n    for char in s:\n        if char == '(':\n            stack.append(char)\n        elif char == ')':\n            if not stack:\n                return False\n            stack.pop()\n    return len(stack) == 0",
+        "retrieved_examples_count": 3
+    },
+    {
+        "case_id": 102,
+        "function_name": "second_largest",
+        "mode": "RAG",
+        "generated_code": "def second_largest(numbers):\n    if not numbers:\n        raise ValueError('List cannot be empty')\n    largest = second_largest = None\n    for number in numbers:\n        if largest is None or number > largest:\n            second_largest = largest\n            largest = number\n        elif second_largest is None or number > second_largest:\n            second_largest = number\n    return second_largest",
+        "retrieved_examples_count": 3
+    },
+    {
+        "case_id": 103,
+        "function_name": "merge_sorted_lists",
+        "mode": "RAG",
+        "generated_code": "def merge_sorted_lists(list1, list2):\n    \"\"\"\n    Merge two sorted lists into one sorted list.\n    \n    Parameters:\n    list1 (List[int]): The first sorted list.\n    list2 (List[str]): The second sorted list.\n    \n    Returns:\n    List[str]: A merged and sorted list containing elements from both input lists.\n    \"\"\"\n    merged_list = []\n    i, j = 0, 0\n\n    while i < len(list1) and j < len(list2):\n        if list1[i] < list2[j]:\n            merged_list.append(list1[i])\n            i += 1\n        else:\n            merged_list.append(list2[j])\n            j += 1\n\n    while i < len(list1):\n        merged_list.append(list1[i])\n        i += 1\n\n    while j < len(list2):\n        merged_list.append(list2[j])\n        j += 1\n\n    return merged_list",
+        "retrieved_examples_count": 3
+    },
+    {
+        "case_id": 104,
+        "function_name": "word_frequency",
+        "mode": "RAG",
+        "generated_code": "def word_frequency(sentence):\n    words = sentence.split()\n    frequency = {}\n    for word in words:\n        frequency[word] = frequency.get(word, 0) + 1\n    return frequency",
+        "retrieved_examples_count": 3
+    },
+    {
+        "case_id": 105,
+        "function_name": "rotate_list",
+        "mode": "RAG",
+        "generated_code": "def rotate_list(l, k):\n    \"\"\"\n    Rotate the elements of the list 'l' to the right by 'k' positions.\n    \"\"\"\n    n = len(l)\n    k = k % n  # In case k is greater than the length of the list\n    return l[-k:] + l[:-k]",
+        "retrieved_examples_count": 3
+    },
+    {
+        "case_id": 106,
+        "function_name": "remove_duplicates",
+        "mode": "RAG",
+        "generated_code": "def remove_duplicates(items):\n    result = []\n    seen = set()\n    for item in items:\n        if item not in seen:\n            result.append(item)\n            seen.add(item)\n    return result",
+        "retrieved_examples_count": 3
+    },
+    {
+        "case_id": 107,
+        "function_name": "is_leap_year",
+        "mode": "RAG",
+        "generated_code": "def is_leap_year(year):\n    if year % 4 == 0:\n        if year % 100 == 0:\n            if year % 400 == 0:\n                return True\n            else:\n                return False\n        else:\n            return True\n    else:\n        return False",
+        "retrieved_examples_count": 3
+    },
+    {
+        "case_id": 108,
+        "function_name": "find_missing_number",
+        "mode": "RAG",
+        "generated_code": "def find_missing_number(L, start, end):\n    if end - start <= 1:\n        if L[end] - L[start] > 1:\n            yield from range(L[start] + 1, L[end])\n        return\n\n    index = start + (end - start) // 2\n\n    # is the lower half consecutive?\n    consecutive_low = L[index] == L[start] + (index - start)\n    if not consecutive_low:\n        yield from find_missing_number(L, start, index)\n\n    # is the upper part consecutive?\n    consecutive_high = L[index] == L[end] - (end - index)\n    if not consecutive_high:\n        yield from find_missing_number(L, index, end)\n\ndef main():\n    L = [10, 11, 13, 14, 15, 16, 17, 18, 20]\n    print(list(find_missing_number(L, 0, len(L) - 1)))\n    L = range(10, 21)\n    print(list(find_missing_number(L, 0, len(L) - 1)))\n\nmain()",
+        "retrieved_examples_count": 3
+    }
+]

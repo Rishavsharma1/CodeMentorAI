@@ -1,0 +1,72 @@
+[
+    {
+        "case_id": 1,
+        "function_name": "add_numbers",
+        "mode": "NO-RAG",
+        "generated_code": "def add_numbers(x, y):\n    return x + y",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 2,
+        "function_name": "is_even",
+        "mode": "NO-RAG",
+        "generated_code": "def is_even(number):\n    return number % 2 == 0",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 3,
+        "function_name": "find_largest",
+        "mode": "NO-RAG",
+        "generated_code": "def find_largest(numbers):\n    largest = numbers[0]\n    for num in numbers:\n        if num > largest:\n            largest = num\n    return largest",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 4,
+        "function_name": "reverse_string",
+        "mode": "NO-RAG",
+        "generated_code": "def reverse_string(s):\n    return s[::-1]",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 5,
+        "function_name": "factorial",
+        "mode": "NO-RAG",
+        "generated_code": "def factorial(n):\n    if n == 0:\n        return 1\n    else:\n        return n * factorial(n - 1)",
+        "retrieved_examples_count": 0
+    },
+    {
+        "case_id": 1,
+        "function_name": "add_numbers",
+        "mode": "RAG",
+        "generated_code": "def add_numbers(num1, num2):\n    return num1 + num2",
+        "retrieved_examples_count": 3
+    },
+    {
+        "case_id": 2,
+        "function_name": "is_even",
+        "mode": "RAG",
+        "generated_code": "def is_even(n):\n    return n % 2 == 0",
+        "retrieved_examples_count": 3
+    },
+    {
+        "case_id": 3,
+        "function_name": "find_largest",
+        "mode": "RAG",
+        "generated_code": "def find_largest(numbers):\n    if not numbers:\n        raise ValueError('List cannot be empty')\n    largest = numbers[0]\n    for number in numbers[1:]:\n        if number > largest:\n            largest = number\n    return largest",
+        "retrieved_examples_count": 3
+    },
+    {
+        "case_id": 4,
+        "function_name": "reverse_string",
+        "mode": "RAG",
+        "generated_code": "def reverse_string(text):\n    return text[::-1]",
+        "retrieved_examples_count": 3
+    },
+    {
+        "case_id": 5,
+        "function_name": "factorial",
+        "mode": "RAG",
+        "generated_code": "def factorial(n):\n    if n < 0:\n        raise ValueError('n must be non-negative')\n    if n == 0 or n == 1:\n        return 1\n    return n * factorial(n - 1)",
+        "retrieved_examples_count": 3
+    }
+]
