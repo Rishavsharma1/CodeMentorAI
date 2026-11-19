@@ -1,4 +1,12 @@
 
+
+
+
+
+
+
+
+
 import ast
 import re
 import requests
@@ -227,8 +235,6 @@ def correct_simple_addition_assertions(original_code, test_code):
     """
     Correct expected values for functions whose complete body
     consists of a direct return of two parameters added together.
-
-    Supports integer, float and string literal arguments.
     """
 
     try:
@@ -240,7 +246,6 @@ def correct_simple_addition_assertions(original_code, test_code):
 
     addition_functions = {}
 
-    # Identify simple functions that directly return a + b.
     for node in original_tree.body:
 
         if not isinstance(node, ast.FunctionDef):
@@ -306,7 +311,6 @@ def correct_simple_addition_assertions(original_code, test_code):
         try:
             first = safe_literal_eval(call.args[0])
             second = safe_literal_eval(call.args[1])
-
             expected = first + second
 
         except (
@@ -315,12 +319,10 @@ def correct_simple_addition_assertions(original_code, test_code):
             ArithmeticError,
             OverflowError
         ):
-            # Incompatible types should be tested using pytest.raises.
             continue
 
         expected_node = comparison.comparators[0]
 
-        # Support pytest.approx(expected).
         if (
             isinstance(expected_node, ast.Call)
             and isinstance(expected_node.func, ast.Attribute)
@@ -440,7 +442,6 @@ def run_generated_tests(original_code, test_code):
 
     try:
 
-        # Validate original source syntax.
         ast.parse(original_code)
 
         cleaned_tests, error = clean_test_code(test_code)
@@ -450,21 +451,25 @@ def run_generated_tests(original_code, test_code):
                 "success": False,
                 "output": "",
                 "error": error,
-                "return_code": None
+                "return_code": None,
+                "test_code": test_code
             }
 
-        # Correct incorrect expected values for simple addition.
+        # Correct simple addition assertions.
         cleaned_tests = correct_simple_addition_assertions(
             original_code,
             cleaned_tests
         )
 
-        # Execute generated tests inside Docker only.
+        # Execute tests inside Docker only.
         result = execute_tests(
             original_code,
             cleaned_tests,
             timeout=30
         )
+
+        # Keep the exact test code that was executed.
+        result["test_code"] = cleaned_tests
 
         return result
 
@@ -474,7 +479,8 @@ def run_generated_tests(original_code, test_code):
             "success": False,
             "output": "",
             "error": f"Invalid Python syntax: {error}",
-            "return_code": None
+            "return_code": None,
+            "test_code": test_code
         }
 
     except Exception as error:
@@ -483,7 +489,8 @@ def run_generated_tests(original_code, test_code):
             "success": False,
             "output": "",
             "error": str(error),
-            "return_code": None
+            "return_code": None,
+            "test_code": test_code
         }
 
 
@@ -576,7 +583,7 @@ def generate_and_run_tests(code):
 
     print("\nGenerating test cases...")
 
-    # Step 1: Generate tests.
+    # Step 1: Generate initial tests.
     test_code, error = generate_tests(code)
 
     if test_code is None:
@@ -589,7 +596,7 @@ def generate_and_run_tests(code):
     print("\nGenerated Test Cases:")
     print(test_code)
 
-    # Step 2: Run initial tests.
+    # Step 2: Execute initial tests.
     print("\nRunning generated tests inside Docker...")
 
     result = run_generated_tests(code, test_code)
@@ -597,7 +604,12 @@ def generate_and_run_tests(code):
     if result["success"]:
 
         print("\nAll generated tests passed!")
-        print(result["output"])
+        print(result.get("output", ""))
+
+        result["generated_test_code"] = test_code
+        result["executed_test_code"] = result.get("test_code")
+        result["was_repaired"] = False
+        result["initial_output"] = result.get("output", "")
 
         return result
 
@@ -631,12 +643,18 @@ def generate_and_run_tests(code):
         print("\nCould not repair tests.")
         print("Reason:", error)
 
+        result["generated_test_code"] = test_code
+        result["executed_test_code"] = result.get("test_code")
+        result["was_repaired"] = False
+        result["initial_output"] = result.get("output", "")
+        result["repair_error"] = error
+
         return result
 
     print("\nRepaired Test Cases:")
     print(repaired_code)
 
-    # Step 4: Run repaired tests inside Docker.
+    # Step 4: Execute repaired tests.
     print("\nRunning repaired tests inside Docker...")
 
     retry_result = run_generated_tests(
@@ -657,6 +675,14 @@ def generate_and_run_tests(code):
 
     if retry_result.get("error"):
         print(retry_result["error"])
+
+    # Preserve both original and repaired test code.
+    retry_result["generated_test_code"] = test_code
+    retry_result["executed_test_code"] = retry_result.get("test_code")
+    retry_result["repaired_test_code"] = repaired_code
+    retry_result["was_repaired"] = True
+    retry_result["initial_output"] = result.get("output", "")
+    retry_result["initial_error"] = result.get("error", "")
 
     return retry_result
 
